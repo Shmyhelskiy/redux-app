@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  min-height: 75px;
+  align-items: center;
+  background-color: rgb(182, 205, 248);
+}
+.container {
+  color: rgb(36, 36, 36);
+  margin-left: 30px;
+  text-decoration: none;
+}
+.container:hover {
+  color: rgb(128, 157, 211);
+}
+

@@ -1,0 +1,17 @@
+.wrapper {
+  margin-top: 40px;
+}
+
+.add {
+  left: 72%;
+  height: 50px;
+  position: absolute;
+  border-radius: 50%;
+  background-color: aqua;
+}
+
+.add:hover {
+  transform: scale(1.2);
+  transition: transform 0.25s;
+  background-color: rgb(29, 238, 74);
+}
