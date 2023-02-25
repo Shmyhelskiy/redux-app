@@ -8,7 +8,7 @@ import { appRoutes } from "../routes/Routes";
 
 const PublicationsPage = () => {
   const postData = useSelector((state) => state.postData);
-  postData.forEach((item, index) => (item.id = index + 1));
+  postData.forEach((item, index) => (item.id = index));
   return (
     <div className={styles["wrapper"]}>
       {postData.map((item) => (

@@ -35,13 +35,34 @@ const defaultState = {
 };
 
 function reducer(state = defaultState, action) {
-  if (action.type === "ADD_POST") {
-    return { ...state, postData: state.postData.push(action.newPost) };
+  switch (action.type) {
+    case "ADD_POST":
+      const newData = [...state.postData, action.newPost];
+
+      return { ...state, postData: newData };
+
+    case "INSERT_COMMENT":
+      if (!action.clickComment) {
+        const newComment = state.postData[action.ID].comment + 1;
+        state.postData[action.ID].comment = newComment;
+      } else {
+        const newComment = state.postData[action.ID].comment - 1;
+        state.postData[action.ID].comment = newComment;
+      }
+      return { ...state };
+
+    case "INSERT_LIKE":
+      if (!action.clickLike) {
+        const newLike = state.postData[action.ID].likes + 1;
+        state.postData[action.ID].likes = newLike;
+      } else {
+        const newLike = state.postData[action.ID].likes - 1;
+        state.postData[action.ID].likes = newLike;
+      }
+      return { ...state };
+    default:
+      return state;
   }
-  if (action.type === "INSERT_MONEY") {
-    return { ...state, money: state.money + 100 };
-  }
-  return state;
 }
 
 let store = createStore(reducer);
